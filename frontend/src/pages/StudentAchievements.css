@@ -1,0 +1,58 @@
+.achievements-container {
+  padding: 40px;
+}
+
+.achievements-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color:black;
+}
+
+.achievement-card {
+  background: var(--bg-card);
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+}
+
+.achievement-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.achievement-label {
+  font-weight: bold;
+  font-size: 20px;
+  color: var(--text-primary);
+}
+
+.achievement-value {
+  font-size: 20px;
+  color: var(--text-secondary);
+}
+
+/* ⭐️ ريسبونسيف */
+@media (max-width: 768px) {
+  .achievements-container {
+    padding: 20px;
+  }
+
+  .achievements-title {
+    font-size: 22px;
+  }
+
+  .achievement-card {
+    padding: 15px;
+  }
+
+  .achievement-row {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .achievement-label {
+    margin-bottom: 5px;
+  }
+}

@@ -1,0 +1,471 @@
+/* =========================================================
+   Global responsive hardening + motion polish
+   This file is loaded last so it can safely normalize legacy
+   page styles without changing their data or component logic.
+   ========================================================= */
+
+html,
+body,
+#root,
+.home-page,
+.site-layout,
+.site-layout__content {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.site-layout__content,
+.site-layout__content > *,
+.site-layout__content > * > * {
+  min-width: 0;
+}
+
+.site-layout__content > * {
+  animation: pageEnter 460ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keep legacy headings readable in both themes. */
+.site-layout :is(h1, h2, h3, h4),
+.site-layout :is(
+  .studentscount-title,
+  .activitiescount-title,
+  .level-title,
+  .card-value,
+  .plan-text
+) {
+  color: var(--text-primary);
+}
+
+.site-layout :is(.level-subtitle, .card-label, .card-hint) {
+  color: var(--text-secondary);
+}
+
+/* Cards/surfaces from older pages inherit the current design system. */
+.site-layout :is(
+  .studentscount-card,
+  .activitiescount-card,
+  .level-card,
+  .student-reports-container,
+  .student-tests-container,
+  .admin-reports-container,
+  .change-password-container,
+  .feedback-container,
+  .volunteer-container,
+  .lecture-card
+) {
+  max-width: 100%;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.site-layout .level-card,
+.site-layout .card-highlight,
+.site-layout .card-soft,
+.site-layout .card-wide {
+  background: color-mix(in srgb, var(--bg-card) 94%, transparent);
+  border-color: var(--border-color);
+}
+
+/* Tables: never force the viewport wider than the device. */
+.site-layout :is(.table-wrapper, .table-container) {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+  border-radius: var(--radius-sm);
+}
+
+.site-layout :is(
+  .students-table,
+  .reports-table,
+  .tests-table,
+  .exams-table,
+  .errors-table
+) {
+  max-width: none;
+}
+
+.site-layout table th,
+.site-layout table td {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.site-layout table th {
+  white-space: nowrap;
+}
+
+/* Forms should shrink correctly inside cards and tables. */
+.site-layout :is(input, select, textarea) {
+  max-width: 100%;
+}
+
+.site-layout textarea {
+  resize: vertical;
+}
+
+.site-layout :is(.actions-buttons, .exam-actions, .step-actions, .form-actions) {
+  flex-wrap: wrap;
+}
+
+/* Shared modal behavior on phones, tablets and landscape screens. */
+.site-layout :is(.modal-overlay, .role-modal-overlay) {
+  padding:
+    max(12px, env(safe-area-inset-top))
+    max(12px, env(safe-area-inset-right))
+    max(12px, env(safe-area-inset-bottom))
+    max(12px, env(safe-area-inset-left));
+}
+
+.site-layout .modal-content {
+  width: min(94vw, 760px);
+  max-width: 94vw;
+  max-height: min(86dvh, 820px);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.site-layout .modal-content :is(.errors-table, table) {
+  min-width: 520px;
+}
+
+/* Admin students has an internal sidebar; keep it below the shared header. */
+.site-layout__content > .admin-students-page {
+  padding-top: 42px;
+}
+
+.site-layout .admin-students-page,
+.site-layout .main-content {
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Common hover/motion language for interactive surfaces. */
+.site-layout :is(
+  .student-card,
+  .admin-card,
+  .level-card,
+  .lecture-card,
+  .studentscount-card,
+  .activitiescount-card
+) {
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition),
+    background-color var(--transition);
+}
+
+.site-layout :is(
+  .student-card,
+  .admin-card,
+  .level-card,
+  .lecture-card,
+  .studentscount-card,
+  .activitiescount-card
+):hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .site-layout__content > * {
+    background-attachment: scroll !important;
+  }
+
+  .site-layout :is(
+    .student-reports-container,
+    .student-tests-container,
+    .admin-reports-container,
+    .feedback-container,
+    .volunteer-container,
+    .change-password-container
+  ) {
+    width: 100%;
+  }
+
+  .site-layout :is(.filter-tabs, .action-bar, .header-actions) {
+    max-width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .site-layout__content > .admin-students-page {
+    padding-top: 38px;
+  }
+
+  .site-layout :is(
+    .student-level-page,
+    .student-reports-page,
+    .student-tests-section,
+    .admin-reports-page,
+    .lectures-page,
+    .volunteer-page,
+    .change-password-page,
+    .feedback-page
+  ) {
+    padding-inline: 12px;
+  }
+
+  .site-layout :is(
+    .student-level-container,
+    .student-reports-container,
+    .student-tests-container,
+    .admin-reports-container,
+    .feedback-container,
+    .volunteer-container,
+    .change-password-container,
+    .studentscount-container,
+    .activitiescount-container
+  ) {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 14px;
+  }
+
+  .site-layout :is(.studentscount-row, .activitiescount-row) {
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .site-layout :is(.studentscount-label, .activitiescount-label) {
+    font-size: 1rem;
+  }
+
+  .site-layout :is(.studentscount-value, .activitiescount-value) {
+    font-size: 0.95rem;
+  }
+
+  /* Keep the admin sidebar usable after closing it on mobile. */
+  .site-layout .sidebar {
+    top: calc(var(--header-height) + 18px);
+    height: calc(100dvh - var(--header-height) - 28px);
+    max-height: calc(100dvh - var(--header-height) - 28px);
+    border-radius: 18px 0 0 18px;
+  }
+
+  .site-layout .sidebar.closed {
+    width: 50px;
+    height: 50px;
+    min-height: 50px;
+    padding: 8px;
+    overflow: visible;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .site-layout .sidebar.closed .sidebar-toggle {
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .site-layout .sidebar.open {
+    width: min(82vw, 280px);
+    overflow-y: auto;
+  }
+
+  .site-layout .main-content {
+    width: 100%;
+    padding-inline: 10px;
+  }
+
+  .site-layout .search-wrapper {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .site-layout :is(.filter-wrapper, .search-wrapper) {
+    max-width: 100%;
+  }
+
+  .site-layout :is(.filter-tabs, .actions-buttons, .exam-type-tabs) {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
+  }
+
+  .site-layout :is(.filter-tab, .tab-btn) {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .site-layout .modal-content {
+    width: 96vw;
+    max-width: 96vw;
+    padding: 24px 14px 16px;
+    border-radius: 20px;
+  }
+
+  .site-layout .modal-content :is(.errors-table, table) {
+    min-width: 480px;
+  }
+
+  .site-layout :is(.level-row, .eval-item, .level-decision) {
+    min-width: 0;
+  }
+
+  .site-layout :is(.level-value, .eval-value, .decision-badge) {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .site-layout__content {
+    padding-top: 42px;
+  }
+
+  .site-layout__content > .admin-students-page {
+    padding-top: 34px;
+  }
+
+  .site-layout :is(
+    .student-level-page,
+    .student-reports-page,
+    .student-tests-section,
+    .admin-reports-page,
+    .lectures-page,
+    .volunteer-page,
+    .change-password-page,
+    .feedback-page
+  ) {
+    padding-inline: 8px;
+  }
+
+  .site-layout :is(
+    .student-level-container,
+    .student-reports-container,
+    .student-tests-container,
+    .admin-reports-container,
+    .feedback-container,
+    .volunteer-container,
+    .change-password-container,
+    .studentscount-container,
+    .activitiescount-container
+  ) {
+    padding-inline: 10px;
+    border-radius: 16px;
+  }
+
+  .site-layout :is(.level-title, .student-tests-title, .student-reports-title, .admin-reports-title) {
+    font-size: clamp(1.35rem, 7vw, 1.65rem);
+  }
+
+  .site-layout .level-title::after {
+    width: min(70vw, 220px);
+  }
+
+  .site-layout :is(.level-card, .student-card, .admin-card) {
+    border-radius: 16px;
+  }
+
+  .site-layout .pagination {
+    gap: 6px;
+  }
+
+  .site-layout .page-btn {
+    padding-inline: 10px;
+  }
+}
+
+/* Very small devices */
+@media (max-width: 360px) {
+  .navbar {
+    width: calc(100% - 10px);
+    padding-inline: 6px;
+  }
+
+  .logo-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .logo-img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .login-btn {
+    max-width: 82px;
+    min-height: 40px;
+    padding-inline: 8px;
+    font-size: 0.78rem;
+  }
+
+  .theme-icon-btn,
+  .hamburger-btn {
+    width: 39px;
+    height: 39px;
+  }
+}
+
+/* Short landscape devices: preserve usable vertical space. */
+@media (max-height: 520px) and (orientation: landscape) {
+  .navbar {
+    top: 5px;
+    min-height: 58px;
+  }
+
+  .logo-button {
+    width: 46px;
+    height: 46px;
+  }
+
+  .logo-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .site-layout__content {
+    padding-top: 38px;
+  }
+
+  .site-layout .modal-content {
+    max-height: 90dvh;
+  }
+}
+
+/* Motion accessibility is also defined globally in index.css; keep this
+   local fallback for any future standalone bundle that imports this file. */
+@media (prefers-reduced-motion: reduce) {
+  .site-layout__content > * {
+    animation: none !important;
+  }
+
+  .site-layout :is(
+    .student-card,
+    .admin-card,
+    .level-card,
+    .lecture-card,
+    .studentscount-card,
+    .activitiescount-card
+  ):hover {
+    transform: none;
+  }
+}

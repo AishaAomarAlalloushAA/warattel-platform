@@ -1,0 +1,93 @@
+/* ===== صفحة تقارير الطالب ===== */
+.student-reports-page {
+  min-height: 100vh;
+  padding: 100px 20px 40px;
+  background-image: url("/22.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  direction: rtl;
+}
+
+.student-reports-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 35px 30px;
+  box-shadow: var(--shadow-hover);
+}
+
+.student-reports-title {
+  font-size: 2rem;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 18px;
+  font-family: "Tajawal", "Amiri", sans-serif;
+}
+
+.student-reports-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+/* ===== الجدول ===== */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.reports-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  min-width: 800px;
+}
+
+.reports-table th {
+  background: var(--primary-color);
+  color: white;
+  padding: 12px 16px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.reports-table td {
+  padding: 10px 16px;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.reports-table tr:hover {
+  background: var(--hover-bg);
+}
+
+.no-reports {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1.1rem;
+  padding: 40px 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .student-reports-container {
+    padding: 20px 16px;
+  }
+
+  .student-reports-title {
+    font-size: 1.8rem;
+  }
+
+  .reports-table {
+    font-size: 0.85rem;
+    min-width: 600px;
+  }
+
+  .reports-table th,
+  .reports-table td {
+    padding: 8px 10px;
+  }
+}

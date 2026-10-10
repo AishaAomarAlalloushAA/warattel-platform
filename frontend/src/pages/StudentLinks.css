@@ -1,0 +1,58 @@
+.links-container {
+  padding: 40px;
+}
+
+.links-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color:black;
+}
+
+.link-card {
+  background: var(--bg-card);
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+}
+
+.link-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.link-label {
+  font-weight: bold;
+  font-size: 20px;
+  color: var(--text-primary);
+}
+
+.link-value {
+  font-size: 20px;
+  color: var(--text-secondary);
+}
+
+/* ⭐️ ريسبونسيف */
+@media (max-width: 768px) {
+  .links-container {
+    padding: 20px;
+  }
+
+  .links-title {
+    font-size: 22px;
+  }
+
+  .link-card {
+    padding: 15px;
+  }
+
+  .link-row {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .link-label {
+    margin-bottom: 5px;
+  }
+}

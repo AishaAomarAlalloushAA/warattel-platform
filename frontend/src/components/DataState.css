@@ -1,0 +1,23 @@
+.data-state {
+  width: 100%;
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 30px 20px;
+  border: 1px dashed var(--border-color);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--bg-card) 76%, transparent);
+  color: var(--text-secondary);
+  text-align: center;
+}
+.data-state > svg { font-size: 1.45rem; color: var(--primary-color); }
+.data-state strong { color: var(--text-primary); font-size: 1rem; }
+.data-state span { max-width: 520px; line-height: 1.7; font-size: .9rem; }
+.data-state button { margin-top: 5px; padding: 9px 16px; border: 1px solid var(--primary-color); border-radius: 11px; background: var(--primary-color); color: #fff; font-family: inherit; cursor: pointer; }
+.data-state--error > svg { color: #b42318; }
+.data-state__spinner { animation: data-spin .8s linear infinite; }
+@keyframes data-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .data-state__spinner { animation: none; } }

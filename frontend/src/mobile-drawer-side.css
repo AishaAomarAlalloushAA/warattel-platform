@@ -1,0 +1,64 @@
+/* RTL mobile navigation: open from the opposite (left) edge. */
+@media (max-width: 980px) {
+  .mobile-drawer {
+    right: auto;
+    left: 0;
+    border-left: 0;
+    border-right: 1px solid var(--border-color);
+    background:
+      radial-gradient(circle at 10% 0%, var(--primary-soft), transparent 32%),
+      var(--bg-elevated);
+    box-shadow: 22px 0 60px rgba(0, 0, 0, 0.24);
+    animation: mobileDrawerInFromLeft 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Keep Arabic direction while centering the mobile navigation visually. */
+  .mobile-drawer__nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-inline: 8px;
+  }
+
+  .mobile-drawer__links {
+    width: min(100%, 300px);
+    justify-items: center;
+  }
+
+  .mobile-drawer__links li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mobile-drawer__links .nav-link,
+  .mobile-drawer__links .nav-link-anchor {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .mobile-drawer__footer {
+    width: min(100%, 300px);
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .mobile-drawer__login,
+  .mobile-drawer__theme {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  @keyframes mobileDrawerInFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-36px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}

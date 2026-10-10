@@ -1,0 +1,103 @@
+/* Final shared admin polish. Loaded after legacy page styles. */
+.admin-shell .admin-students-page > .sidebar {
+  display: none !important;
+}
+
+.admin-shell .admin-students-page .top-header {
+  display: flex !important;
+  align-items: end;
+  justify-content: space-between;
+  margin: 0 0 22px;
+  padding: 0;
+  background: transparent;
+}
+
+.admin-shell .admin-students-page .header-right {
+  display: none !important;
+}
+
+.admin-shell .admin-students-page .header-left h1 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: clamp(1.55rem, 2.6vw, 2rem);
+  font-weight: 850;
+  text-align: right;
+  letter-spacing: -0.02em;
+}
+
+.admin-shell :is(
+  .examscount-title,
+  .admin-reports-title,
+  .studentscount-title,
+  .activitiescount-title
+) {
+  margin-bottom: 22px;
+  color: var(--text-primary);
+  font-size: clamp(1.55rem, 2.6vw, 2rem);
+  font-weight: 850;
+  text-align: right;
+  letter-spacing: -0.02em;
+}
+
+.admin-shell :is(.examscount-container, .admin-reports-container) {
+  padding: clamp(18px, 2.4vw, 28px);
+  border: 1px solid var(--border-color);
+  border-radius: 22px;
+  background: var(--bg-card);
+  box-shadow: 0 14px 38px rgba(19, 63, 52, 0.06);
+}
+
+.admin-shell .admin-students-page .action-bar {
+  padding: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 17px;
+  background: var(--bg-card);
+  box-shadow: 0 9px 26px rgba(19, 63, 52, 0.04);
+}
+
+.admin-shell .admin-students-page .search-wrapper {
+  margin-left: 0;
+}
+
+.admin-shell :is(.filter-tab, .tab-btn) {
+  min-height: 40px;
+  border-width: 1px;
+  box-shadow: none;
+}
+
+.admin-shell :is(.add-btn, .add-row-btn, .add-exam-btn) {
+  min-height: 42px;
+  border-radius: 13px;
+  box-shadow: 0 8px 20px rgba(15, 107, 93, 0.13);
+}
+
+.admin-shell :is(.students-table, .reports-table, .exams-table) th {
+  height: 48px;
+  background: color-mix(in srgb, var(--primary-color) 94%, #092f28);
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.admin-shell :is(.students-table, .reports-table, .exams-table) td {
+  height: 52px;
+}
+
+.admin-shell .actions-menu {
+  border-radius: 14px;
+  box-shadow: 0 18px 46px rgba(16, 54, 45, 0.14);
+}
+
+@media (max-width: 820px) {
+  .admin-shell .admin-students-page .top-header {
+    margin-bottom: 16px;
+  }
+
+  .admin-shell :is(
+    .examscount-title,
+    .admin-reports-title,
+    .studentscount-title,
+    .activitiescount-title
+  ) {
+    margin-bottom: 16px;
+  }
+}

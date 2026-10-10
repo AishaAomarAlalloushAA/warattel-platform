@@ -1,0 +1,452 @@
+.admin-shell {
+  --admin-sidebar-width: 292px;
+  min-height: 100vh;
+  direction: rtl;
+  background:
+    radial-gradient(circle at 86% 8%, color-mix(in srgb, var(--primary-soft) 74%, transparent), transparent 24%),
+    var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.admin-sidebar {
+  position: fixed;
+  inset-block: 0;
+  inset-inline-start: 0;
+  z-index: 1500;
+  width: var(--admin-sidebar-width);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px 16px;
+  border-inline-end: 1px solid color-mix(in srgb, var(--border-color) 84%, transparent);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--bg-card) 98%, var(--primary-soft)) 0%, var(--bg-card) 100%);
+  box-shadow: -14px 0 44px rgba(5, 54, 44, 0.08);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.admin-sidebar__brand {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 5px 18px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.admin-sidebar__logo-wrap {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 17px;
+  background: var(--primary-soft);
+  border: 1px solid color-mix(in srgb, var(--primary-color) 14%, var(--border-color));
+}
+
+.admin-sidebar__logo-wrap img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.admin-sidebar__brand-copy {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.admin-sidebar__brand-copy strong {
+  font-size: 1.08rem;
+  font-weight: 850;
+  color: var(--text-primary);
+}
+
+.admin-sidebar__brand-copy span {
+  font-size: 0.76rem;
+  color: var(--text-light);
+}
+
+.admin-sidebar__mobile-close {
+  display: none;
+  margin-inline-start: auto;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--hover-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.admin-sidebar__profile {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 18px 0 20px;
+  padding: 12px 13px;
+  border: 1px solid color-mix(in srgb, var(--primary-color) 12%, var(--border-color));
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--primary-soft) 44%, var(--bg-card));
+}
+
+.admin-sidebar__avatar {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.admin-sidebar__profile > div {
+  min-width: 0;
+  display: grid;
+  gap: 1px;
+}
+
+.admin-sidebar__profile strong {
+  max-width: 165px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+}
+
+.admin-sidebar__profile span:not(.admin-sidebar__avatar) {
+  font-size: 0.72rem;
+  color: var(--text-light);
+}
+
+.admin-sidebar__nav {
+  display: grid;
+  gap: 5px;
+}
+
+.admin-sidebar__section-title {
+  padding: 0 11px 8px;
+  color: var(--text-light);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.admin-sidebar__link,
+.admin-sidebar__utility,
+.admin-sidebar__logout {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 13px;
+  border-radius: 13px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    transform var(--transition);
+}
+
+.admin-sidebar__link {
+  position: relative;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+}
+
+.admin-sidebar__link svg,
+.admin-sidebar__utility svg,
+.admin-sidebar__logout svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.admin-sidebar__link:hover {
+  background: var(--hover-bg);
+  color: var(--primary-color);
+}
+
+.admin-sidebar__link.is-active {
+  border-color: color-mix(in srgb, var(--primary-color) 18%, transparent);
+  background: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 9px 24px rgba(15, 107, 93, 0.18);
+}
+
+.admin-sidebar__link.is-active::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 10px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #e8cf91;
+}
+
+.admin-sidebar__bottom {
+  display: grid;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-color);
+}
+
+.admin-sidebar__utility,
+.admin-sidebar__logout {
+  width: 100%;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-secondary);
+  text-align: right;
+  cursor: pointer;
+}
+
+.admin-sidebar__utility:hover {
+  border-color: var(--border-color);
+  background: var(--hover-bg);
+  color: var(--text-primary);
+}
+
+.admin-sidebar__logout {
+  margin-top: 4px;
+  border-color: color-mix(in srgb, #b42318 18%, var(--border-color));
+  background: color-mix(in srgb, #b42318 5%, var(--bg-card));
+  color: #b42318;
+}
+
+.admin-sidebar__logout:hover {
+  background: color-mix(in srgb, #b42318 10%, var(--bg-card));
+  transform: translateY(-1px);
+}
+
+.admin-workspace {
+  min-height: 100vh;
+  margin-inline-start: var(--admin-sidebar-width);
+}
+
+.admin-workspace__content {
+  min-height: 100vh;
+  width: 100%;
+  padding: 34px clamp(20px, 3.6vw, 54px) 54px;
+}
+
+.admin-mobilebar {
+  display: none;
+}
+
+/* Normalize legacy admin pages inside the shared workspace. */
+.admin-shell :is(
+  .admin-section,
+  .examscount-section,
+  .admin-reports-page,
+  .studentscount-section,
+  .activitiescount-section,
+  .admin-students-page
+) {
+  min-height: auto;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  background-image: none;
+}
+
+.admin-shell :is(
+  .admin-container,
+  .examscount-container,
+  .admin-reports-container,
+  .studentscount-container,
+  .activitiescount-container
+) {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+/* Remove the old one-off students sidebar/header; AdminLayout owns navigation now. */
+.admin-shell .admin-students-page > .sidebar,
+.admin-shell .admin-students-page .top-header {
+  display: none !important;
+}
+
+.admin-shell .admin-students-page {
+  display: block;
+}
+
+.admin-shell .admin-students-page .main-content {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-shell :is(.table-wrapper, .table-container) {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  background: var(--bg-card);
+  box-shadow: 0 12px 34px rgba(19, 63, 52, 0.06);
+}
+
+.admin-shell :is(.students-table, .reports-table, .exams-table) {
+  margin: 0;
+}
+
+.admin-shell :is(.students-table, .reports-table, .exams-table) th:first-child {
+  border-start-start-radius: 14px;
+}
+
+.admin-shell :is(.students-table, .reports-table, .exams-table) th:last-child {
+  border-start-end-radius: 14px;
+}
+
+.admin-shell :is(.filter-tabs, .action-bar, .exam-type-tabs, .header-actions) {
+  max-width: 100%;
+}
+
+.admin-shell .modal-overlay {
+  z-index: 3000;
+}
+
+.admin-shell__overlay {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .admin-shell {
+    --admin-sidebar-width: 264px;
+  }
+
+  .admin-workspace__content {
+    padding-inline: 24px;
+  }
+}
+
+@media (max-width: 820px) {
+  .admin-shell {
+    --admin-sidebar-width: 0px;
+  }
+
+  .admin-sidebar {
+    width: min(86vw, 310px);
+    transform: translateX(105%);
+    transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.2);
+  }
+
+  .admin-sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .admin-sidebar__mobile-close {
+    display: grid;
+  }
+
+  .admin-shell__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1400;
+    display: block;
+    border: 0;
+    background: rgba(3, 24, 20, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .admin-workspace {
+    margin-inline-start: 0;
+  }
+
+  .admin-mobilebar {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    min-height: 70px;
+    display: grid;
+    grid-template-columns: 42px 1fr 42px;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border-color);
+    background: color-mix(in srgb, var(--bg-card) 92%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .admin-mobilebar button {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 13px;
+    background: var(--hover-bg);
+    color: var(--primary-color);
+    cursor: pointer;
+  }
+
+  .admin-mobilebar > div {
+    min-width: 0;
+    display: grid;
+    gap: 0;
+  }
+
+  .admin-mobilebar span {
+    color: var(--text-light);
+    font-size: 0.68rem;
+  }
+
+  .admin-mobilebar strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--text-primary);
+    font-size: 0.92rem;
+  }
+
+  .admin-mobilebar img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  .admin-workspace__content {
+    padding: 22px 14px 38px;
+  }
+
+  .admin-shell :is(.filter-tabs, .exam-type-tabs) {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding-bottom: 5px;
+  }
+
+  .admin-shell :is(.filter-tab, .tab-btn) {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .admin-shell .action-bar {
+    margin-inline: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .admin-workspace__content {
+    padding-inline: 10px;
+  }
+
+  .admin-shell :is(.admin-container, .examscount-container, .admin-reports-container) {
+    padding-inline: 0;
+  }
+}

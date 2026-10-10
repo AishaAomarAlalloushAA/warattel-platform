@@ -1,0 +1,99 @@
+.toast-region {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 10000;
+  width: min(92vw, 390px);
+  display: grid;
+  gap: 10px;
+  direction: rtl;
+  pointer-events: none;
+}
+
+.app-toast {
+  --toast-accent: var(--primary-color);
+  display: grid;
+  grid-template-columns: 40px 1fr 32px;
+  align-items: start;
+  gap: 10px;
+  padding: 13px 14px;
+  border: 1px solid color-mix(in srgb, var(--toast-accent) 25%, var(--border-color));
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--bg-card) 96%, transparent);
+  color: var(--text-primary);
+  box-shadow: 0 18px 50px rgba(8, 45, 38, 0.16);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  pointer-events: auto;
+  animation: toast-enter 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.app-toast--success { --toast-accent: #16805f; }
+.app-toast--error { --toast-accent: #c03b32; }
+.app-toast--warning { --toast-accent: #b47b17; }
+.app-toast--info { --toast-accent: #316da6; }
+
+.app-toast__icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--toast-accent) 12%, var(--bg-card));
+  color: var(--toast-accent);
+  font-size: 1.05rem;
+}
+
+.app-toast__body {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.app-toast__body strong {
+  color: var(--text-primary);
+  font-size: 0.88rem;
+  font-weight: 850;
+}
+
+.app-toast__body span {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.app-toast__close {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--text-light);
+  cursor: pointer;
+}
+
+.app-toast__close:hover {
+  background: var(--hover-bg);
+  color: var(--text-primary);
+}
+
+@keyframes toast-enter {
+  from { opacity: 0; transform: translateY(-8px) translateX(-8px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 560px) {
+  .toast-region {
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-toast { animation: none; }
+}

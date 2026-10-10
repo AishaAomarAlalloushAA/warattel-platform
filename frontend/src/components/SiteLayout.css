@@ -1,0 +1,25 @@
+.site-layout {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/*
+ * الهيدر ثابت فوق الصفحة. أغلب الصفحات القديمة لديها padding علوي أصلاً،
+ * لذلك نضيف مسافة صغيرة مشتركة بدل تكرار قيم مختلفة بكل صفحة.
+ */
+.site-layout__content {
+  min-height: 100vh;
+  padding-top: 56px;
+}
+
+/* إزالة خيار "اختر" القديم من قوائم الصفحات الداخلية مع إبقاء القيمة الفارغة متاحة للـ state. */
+.site-layout select option[value=""] {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .site-layout__content {
+    padding-top: 44px;
+  }
+}

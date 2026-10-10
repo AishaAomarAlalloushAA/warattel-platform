@@ -1,0 +1,51 @@
+.admin-inbox-page { direction: rtl; }
+
+.admin-inbox-heading { display:flex; justify-content:space-between; align-items:center; gap:18px; margin-bottom:18px; }
+.admin-inbox-heading h1 { margin:4px 0 6px; }
+.admin-inbox-heading p { margin:0; color:var(--text-secondary); }
+.admin-inbox-pending { padding:9px 12px; display:inline-flex; align-items:center; gap:7px; border:1px solid color-mix(in srgb, #c58c19 30%, var(--border-color)); border-radius:11px; background:rgba(197,140,25,.08); color:#9b6d12; font-size:.8rem; font-weight:800; }
+
+.admin-inbox-tabs { display:flex; gap:9px; margin-bottom:18px; }
+.admin-inbox-tabs button { min-height:42px; padding:8px 15px; display:inline-flex; align-items:center; gap:7px; border:1px solid var(--border-color); border-radius:11px; background:var(--bg-card); color:var(--text-secondary); font:inherit; font-weight:750; cursor:pointer; }
+.admin-inbox-tabs button.is-active { border-color:var(--primary-color); background:var(--primary-color); color:#fff; }
+
+.admin-inbox-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:13px; }
+.admin-inbox-card { padding:17px; border:1px solid var(--border-color); border-radius:15px; background:var(--bg-card); box-shadow:0 8px 24px rgba(18,73,59,.04); }
+.admin-inbox-card-head { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:12px; }
+.admin-inbox-card-head > div { display:grid; gap:2px; }
+.admin-inbox-card-head strong { color:var(--text-primary); }
+.admin-inbox-card-head span { color:var(--text-light); font-size:.76rem; }
+.admin-inbox-status { padding:4px 8px; border-radius:999px; background:var(--hover-bg); font-size:.72rem !important; font-weight:800; }
+.admin-inbox-status.pending { background:rgba(197,140,25,.1); color:#9b6d12; }
+.admin-inbox-status.accepted { background:var(--success-bg); color:var(--success-text); }
+.admin-inbox-status.rejected { background:rgba(214,69,69,.1); color:#c43d3d; }
+.admin-inbox-contact { display:flex; flex-wrap:wrap; gap:8px 12px; margin-bottom:10px; font-size:.78rem; }
+.admin-inbox-contact a,.admin-inbox-contact span { color:var(--primary-color); text-decoration:none; }
+.admin-inbox-card p { margin:9px 0 13px; color:var(--text-secondary); line-height:1.8; }
+.admin-inbox-review,.admin-inbox-delete { min-height:38px; padding:7px 12px; display:inline-flex; align-items:center; gap:6px; border:1px solid var(--border-color); border-radius:10px; background:var(--bg-card); color:var(--primary-color); font:inherit; font-size:.8rem; font-weight:800; cursor:pointer; }
+.admin-inbox-delete { color:#c43d3d; }
+.admin-inbox-delete.is-confirming { border-color:#d64545; background:rgba(214,69,69,.08); }
+
+.admin-inbox-modal-overlay { position:fixed; inset:0; z-index:3200; display:grid; place-items:center; padding:18px; background:rgba(8,28,24,.54); backdrop-filter:blur(7px); }
+.admin-inbox-modal { position:relative; width:min(100%,620px); padding:26px; border:1px solid var(--border-color); border-radius:19px; background:var(--bg-card); box-shadow:0 28px 70px rgba(0,0,0,.22); }
+.admin-inbox-modal h2 { margin:0 0 18px; color:var(--text-primary); }
+.admin-inbox-modal-close { position:absolute; top:15px; left:15px; width:35px; height:35px; display:grid; place-items:center; border:1px solid var(--border-color); border-radius:9px; background:var(--bg-card); color:var(--text-secondary); cursor:pointer; }
+.admin-inbox-modal-summary { padding:13px; display:flex; flex-wrap:wrap; gap:6px 14px; border:1px solid var(--border-color); border-radius:12px; background:var(--hover-bg); }
+.admin-inbox-modal-summary strong { width:100%; color:var(--text-primary); }
+.admin-inbox-modal-summary span { color:var(--text-secondary); font-size:.8rem; }
+.admin-inbox-skills { margin-top:14px; color:var(--text-primary); }
+.admin-inbox-skills p { margin:5px 0 0; color:var(--text-secondary); }
+.admin-inbox-response { display:grid; gap:7px; margin-top:16px; color:var(--text-primary); font-size:.85rem; font-weight:700; }
+.admin-inbox-response textarea { width:100%; padding:10px 12px; border:1px solid var(--border-color); border-radius:11px; background:var(--input-bg); color:var(--text-primary); font:inherit; resize:vertical; }
+.admin-inbox-modal-actions { display:flex; gap:8px; margin-top:18px; }
+.admin-inbox-modal-actions button { flex:1; min-height:42px; padding:8px 10px; display:inline-flex; justify-content:center; align-items:center; gap:6px; border:1px solid var(--border-color); border-radius:10px; background:var(--bg-card); color:var(--text-primary); font:inherit; font-size:.78rem; font-weight:800; cursor:pointer; }
+.admin-inbox-modal-actions .accept { border-color:var(--primary-color); background:var(--primary-color); color:#fff; }
+.admin-inbox-modal-actions .reject { border-color:rgba(214,69,69,.35); color:#c43d3d; }
+.admin-inbox-modal-actions .pending { color:#9b6d12; }
+
+@media (max-width:760px) {
+  .admin-inbox-heading { align-items:stretch; flex-direction:column; }
+  .admin-inbox-tabs { flex-direction:column; }
+  .admin-inbox-grid { grid-template-columns:1fr; }
+  .admin-inbox-modal-actions { flex-direction:column; }
+}

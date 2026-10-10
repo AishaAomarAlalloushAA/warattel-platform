@@ -1,0 +1,194 @@
+.about-club {
+  width: 100%;
+  padding: clamp(62px, 7vw, 96px) 20px;
+  background:
+    radial-gradient(circle at 10% 12%, var(--secondary-soft), transparent 28%),
+    var(--bg-secondary);
+}
+
+.about-club-container {
+  width: min(100%, var(--content-width));
+  margin: 0 auto;
+}
+
+.about-club-hadith {
+  width: min(100%, 760px);
+  margin: 0 auto 34px;
+  padding: clamp(22px, 4vw, 30px);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--primary-color) 28%, var(--border-color));
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, var(--primary-soft), transparent 72%),
+    var(--bg-card);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.about-club-hadith::before {
+  content: "“";
+  position: absolute;
+  top: -20px;
+  right: 18px;
+  color: color-mix(in srgb, var(--primary-color) 18%, transparent);
+  font-family: serif;
+  font-size: 7rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.about-club-hadith-label {
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.about-club-hadith p {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: clamp(1.2rem, 3vw, 1.65rem);
+  font-weight: 800;
+  line-height: 1.8;
+}
+
+.about-club-hadith cite {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-light);
+  font-size: 0.88rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.about-club-header {
+  width: min(100%, 800px);
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  margin-bottom: 14px;
+  padding: 6px 12px;
+  border: 1px solid color-mix(in srgb, var(--secondary-color) 35%, var(--border-color));
+  border-radius: 999px;
+  background: var(--secondary-soft);
+  color: var(--secondary-hover);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.about-club-header h2 {
+  margin: 0 0 14px;
+  font-weight: 800;
+}
+
+.about-club-description {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 1.8vw, 1.18rem);
+  line-height: 1.95;
+}
+
+.about-club-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.about-club-card {
+  min-height: 218px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.about-club-card::after {
+  content: '';
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: -52px;
+  left: -42px;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  transition: transform var(--transition), background var(--transition);
+}
+
+.about-club-card:hover {
+  border-color: color-mix(in srgb, var(--primary-color) 38%, var(--border-color));
+  box-shadow: var(--shadow-hover);
+}
+
+.about-club-card:hover::after {
+  transform: scale(1.18);
+  background: var(--secondary-soft);
+}
+
+.about-club-number {
+  display: inline-flex;
+  margin-bottom: 28px;
+  color: var(--primary-color);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.about-club-card h3 {
+  margin: 0 0 10px;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.about-club-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.85;
+}
+
+@media (max-width: 840px) {
+  .about-club-grid {
+    grid-template-columns: 1fr;
+    width: min(100%, 560px);
+    margin: 0 auto;
+  }
+
+  .about-club-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .about-club {
+    padding-inline: 14px;
+  }
+
+  .about-club-hadith {
+    margin-bottom: 28px;
+    border-radius: 20px;
+  }
+
+  .about-club-header {
+    margin-bottom: 32px;
+  }
+
+  .about-club-card {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .about-club-number {
+    margin-bottom: 22px;
+  }
+}

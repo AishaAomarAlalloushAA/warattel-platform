@@ -1,0 +1,204 @@
+/* ===== صفحة مستوى الطالب ===== */
+.student-level-page {
+  min-height: 100vh;
+  padding: 100px 20px 40px;
+  background-image: url("/22.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  direction: rtl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.student-level-container {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ===== الهيدر ===== */
+.level-header {
+  margin-bottom: 45px;
+  text-align: center;
+}
+
+.level-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #2d3a2a;
+  margin: 0 0 8px;
+  font-family: "Amiri", "Tajawal", serif;
+  letter-spacing: -0.5px;
+}
+
+.level-title::after {
+  content: '';
+  display: block;
+  width: 300px;
+  height: 3px;
+  background: #8b9a7a;
+  margin: 12px auto 0;
+  border-radius: 4px;
+}
+
+.level-subtitle {
+  font-size: 1.1rem;
+  color: #6a7a5e;
+  margin-top: 20PX;
+  font-weight: 400;
+}
+
+/* ===== الشبكة ===== */
+.level-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* ===== البطاقات ===== */
+.level-card {
+  background: rgba(255, 255, 255, 0.7);
+  /* backdrop-filter: blur(6px); */
+  border-radius: 24px;
+  padding: 28px 26px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.level-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* ===== تنسيقات خاصة ===== */
+.card-highlight {
+  background: rgba(255, 255, 255, 0.85);
+  border-right: 4px solid #8b9a7a;
+}
+
+.card-soft {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.card-wide {
+  grid-column: 1 / -1;
+  background: rgba(255, 255, 255, 0.8);
+  border-right: 4px solid #c4a882;
+}
+
+/* ===== الأيقونات ===== */
+.card-icon {
+  font-size: 2.3rem;
+  flex-shrink: 0;
+  opacity: 0.8;
+  width: 56px;
+  text-align: center;
+}
+
+/* ===== المحتوى النصي ===== */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.card-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #8a9a7a;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.card-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2a1f;
+  line-height: 1.3;
+}
+
+.plan-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #2d3a2a;
+  line-height: 1.6;
+}
+
+.card-hint {
+  font-size: 0.85rem;
+  color: #9aa88a;
+  margin-top: 4px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .student-level-page {
+    padding: 80px 16px 30px;
+  }
+
+  .level-title {
+    font-size: 2rem;
+  }
+
+  .level-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .card-wide {
+    grid-column: 1;
+  }
+
+  .level-card {
+    padding: 20px 18px;
+    gap: 14px;
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    width: 44px;
+  }
+
+  .card-value {
+    font-size: 1.2rem;
+  }
+
+  .plan-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .level-title {
+    font-size: 1.6rem;
+  }
+
+  .level-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 18px 14px;
+    gap: 10px;
+  }
+
+  .card-icon {
+    font-size: 1.8rem;
+    width: auto;
+  }
+
+  .card-value {
+    font-size: 1.1rem;
+  }
+
+  .plan-text {
+    font-size: 0.95rem;
+  }
+}
